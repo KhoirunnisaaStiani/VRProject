@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.7.0/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <!-- MODEL TAMPILAN 3D SEDERHANA -->
+      <a-assets>
+        <a-asset-item id="tamanGLB" src="assets/stylized_jungle_terrain_1.glb"></a-asset-item>
+        <a-asset-item id="katakGLB" src="assets/frog_jump.glb"></a-asset-item>
+        <a-asset-item id="terrariumGLB" src="assets/terrarium_hololiveen.glb"></a-asset-item>
+        <a-asset-item id="penyu1GLB" src="assets/turtle_sea_3d_model.glb"></a-asset-item>
+        <a-asset-item id="penyu2GLB" src="assets/sea_turtle.glb"></a-asset-item>
+        <a-asset-item id="kapalGLB" src="assets/ship_x_sail_opaque.glb"></a-asset-item>
+        <a-asset-item id="ikanGLB" src="assets/koi_fish.glb"></a-asset-item>
+        <audio id="arter" src="assets/suara air terjun.mp3"></audio>
+      </a-assets>
+
+      <!-- BACKGROUND -->
+      <a-sky color="#00BFFF"></a-sky>  <!-- Deep Sky Blue -->
+
+      <!-- CAMERA -->
+      <a-entity id="CAMERA" position="0 1 5">  
+        <a-camera>
+          <a-cursor color="white"></a-cursor>
+        </a-camera>
+      </a-entity>
+
+       <!-- AUDIO -->
+       <a-entity sound="src: #arter; autoplay: true; loop: true"></a-entity>
+
+        <!-- TAMAN -->
+      <a-entity id="TAMAN" gltf-model="#tamanGLB" position="0 0 0" scale="200 200 200"></a-entity>
+
+      <!-- KATAK -->
+       <a-entity id="KATAK" gltf-model="assets/frog_jump.glb" position="3.3 0.05 22.2" rotation="20 200 10" scale="0.8 0.8 0.8"></a-entity>
+      
+       <!-- TERRARIUM -->
+       <a-entity id="TERRARIUM" gltf-model="assets/terrarium_hololiveen.glb" position="7 2 16.6" rotation="0 220 0"></a-entity>
+
+       <!-- PENYU -->
+       <a-entity id="PENYU" gltf-model="assets/turtle_sea_3d_model.glb" position="-2 -4.5 19" rotation="0 180 0" scale="1.5 1.5 1.5"></a-entity>
+       <a-entity id="PENYU2" gltf-model="assets/sea_turtle.glb" position="0.8 -3.5 21" scale="0.9 0.9 1.5"
+       animation__renang="property: position; to: 0.8 -3.5 20; dir: alternate; dur: 5000; loop: true; easing: easeInOutSine"></a-entity>
+
+       <!-- KAPAL -->
+       <a-entity id="KAPAL" gltf-model="assets/ship_x_sail_opaque.glb" position="-8.4 -2.2 18.5" rotation="0 180 0" scale="1 1 1"
+       animation__gerak="property: position; to: -8.4 -2.2 15.5; dir: alternate; dur: 4000; loop: true; startEvents: mouseenter; easing: easeInOutSine" 
+      animation__balik="property: position; to: -8.4 -2.2 18.5; startEvents: mouseleave; dur: 1000"></a-entity>
+
+       <!-- IKAN -->
+       <a-entity id="IKAN" gltf-model="assets/koi_fish.glb" position="0.47 -9.73 -23" rotation="10 150 9" scale="1 1 1.5" 
+       animation__swim="property: position; to: 2 -8 -15; dir: alternate; dur: 6000; loop: true; easing: easeInOutSine"
+       animation__rotate="property: rotation; to: 0 -90 0; dir: alternate; dur: 6000; loop: true; easing: easeInOutSine"></a-entity>
+       
+</a-scene>
+</body>
+</html>
